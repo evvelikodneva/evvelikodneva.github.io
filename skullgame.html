@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="skullgame.css">
+    <title>Skull game</title>
+</head>
+<body>
+    <div class="choice">
+        <p>Choose difficulty level</p>
+        <div class="btn-container">
+            <button class="easy-btn btn">easy</button>
+            <button class="medium-btn btn">medium</button>
+            <button class="hard-btn btn">hard</button>
+        </div>
+    </div>
+    <div class="start-menu hidden">
+        <button class="start btn">START</button>
+        <button class="go-back btn">choose another difficulty</button>
+    </div>
+    <button class="container hidden" id="container">
+        <img class="skull" src="skull.svg" fill="currentColor">
+    </button>
+    <div class="win hidden">
+        CONGRATS YOU WON
+        <a href="games.html">go back to the page</a>
+    </div>
+    <div class="message hidden">
+        <p>You lost:( Try again!</p>
+        <button class="restart btn">RESTART</button>
+    </div>
+    <script src="skullgame.js"></script>
+</body>
+</html>

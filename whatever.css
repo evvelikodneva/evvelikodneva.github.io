@@ -1,0 +1,8 @@
+.svg-container div{
+    display: block;
+    height: 4px;
+    width: 16px;
+}
+.svg-container div svg{
+    color: blueviolet;
+}
