@@ -80,14 +80,24 @@ restart.addEventListener("click",()=>{
     choice.classList.remove("hidden");
     message.classList.add("hidden");
 })
-container.addEventListener("mouseenter",()=>{
-    container.style.transitionProperty = "top,left";
-    container.style.top = randomCoordinate() + "%";
-    container.style.left = randomCoordinate() + "%";
-})
-container.addEventListener("click",()=>{
-    container.classList.add("hidden");
-    win.classList.remove("hidden");
-    console.log("jndcsndcij")
-    clearTimeout(timer);
-})
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+if (isMobile) {
+  container.addEventListener("touchstart",()=>{
+        container.style.transitionProperty = "top,left";
+        container.style.top = randomCoordinate() + "%";
+        container.style.left = randomCoordinate() + "%";
+  })
+}
+else{
+    container.addEventListener("mouseenter",()=>{
+        container.style.transitionProperty = "top,left";
+        container.style.top = randomCoordinate() + "%";
+        container.style.left = randomCoordinate() + "%";
+    })
+    container.addEventListener("click",()=>{
+        container.classList.add("hidden");
+        win.classList.remove("hidden");
+        console.log("jndcsndcij")
+        clearTimeout(timer);
+    })
+}
