@@ -82,11 +82,27 @@ restart.addEventListener("click",()=>{
 })
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
-  container.addEventListener("touchstart",()=>{
-        container.style.transitionProperty = "top,left";
-        container.style.top = randomCoordinate() + "%";
-        container.style.left = randomCoordinate() + "%";
-  })
+    let touchCount = 0;
+    function zeroTouches(){
+        touchCount = 0;
+    }
+    let touchTimer;
+    touchTimer = setTimeout(touchCount,1000)
+    container.addEventListener("touchstart",()=>{
+        clearTimeout(touchTimer);
+        touchCount+=1;
+        if(touchCount==3){
+            container.classList.add("hidden");
+            win.classList.remove("hidden");
+            clearTimeout(timer);
+        }
+        else{
+            container.style.transitionProperty = "top,left";
+            container.style.top = randomCoordinate() + "%";
+            container.style.left = randomCoordinate() + "%";
+            touchTimer = setTimeout(touchCount,1000);
+        }
+    })
 }
 else{
     container.addEventListener("mouseenter",()=>{
@@ -97,7 +113,6 @@ else{
     container.addEventListener("click",()=>{
         container.classList.add("hidden");
         win.classList.remove("hidden");
-        console.log("jndcsndcij")
         clearTimeout(timer);
     })
 }
