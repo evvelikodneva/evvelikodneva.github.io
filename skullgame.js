@@ -14,12 +14,26 @@ let timer;
 function randomCoordinate(){
     return (Math.random()*90);
 }
+function winWin(){
+    if(restart.parentElement == message){
+        message.removeChild(restart);
+    }
+    container.classList.add("hidden");
+    win.appendChild(restart);
+    win.classList.remove("hidden");
+    clearTimeout(timer);
+    restart.classList.remove("hidden");
+    restart.textContent = "Play again!";
+}
 function gameOver(){
+    if(restart.parentElement == win){
+        win.removeChild(restart);
+    }
+    message.appendChild(restart);
     message.classList.remove("hidden");
     container.classList.add("hidden");
-    message.classList.remove("hidden");
-    container.style.top = "45%";
-    container.style.left = "45%";
+    restart.textContent = "restart";
+    restart.classList.remove("hidden");
 }
 function addEasy(){
     skull.classList.add("easy");
@@ -79,6 +93,10 @@ restart.addEventListener("click",()=>{
     removeAll();
     choice.classList.remove("hidden");
     message.classList.add("hidden");
+    win.classList.add("hidden");
+    restart.classList.add("hidden");
+    container.style.top = "45%";
+    container.style.left = "45%";
 })
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 if (isMobile) {
@@ -92,9 +110,7 @@ if (isMobile) {
         clearTimeout(touchTimer);
         touchCount+=1;
         if(touchCount==3){
-            container.classList.add("hidden");
-            win.classList.remove("hidden");
-            clearTimeout(timer);
+            winWin();
         }
         else{
             container.style.transitionProperty = "top,left";
@@ -111,8 +127,6 @@ else{
         container.style.left = randomCoordinate() + "%";
     })
     container.addEventListener("click",()=>{
-        container.classList.add("hidden");
-        win.classList.remove("hidden");
-        clearTimeout(timer);
+        winWin();
     })
 }
