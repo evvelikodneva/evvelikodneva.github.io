@@ -3,7 +3,7 @@
     <head>
         <title>main page</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="style.css" class="style">
         <link rel="shortcut icon" href="l.png" type="image/png">
     </head>
     <body class="body">
@@ -16,28 +16,44 @@
                 <button class="submit-btn">SUBMIT</button>
             </div>
         </div>
-        <header>
+        <header class="header">
             <nav class="nav">
                 <div class="nav-phone">
                     <button class="nav-btn">
                         <div class="svg-container">
-                            <img src="menu.svg" width="105%" height="105%">
+                            <img src="menu.svg">
                         </div>
                     </button>
                     <ul class="navigation">
-                        <li><a href = "index.html" class="main-page">Main</a></li>
-                        <li><a href = "kittens.html">Kittens</a></li>
-                        <li><a href = "games.html">Games</a></li>
-                        <li><a href = "whatever.html">Whatever</a></li>
+                        <li>
+                            <a class="links" href = "index.html" class="main-page" index="0">Main</a>
+                            <div class="description main hidden">main page, nothing interesting</div>
+                        </li>
+                        <li>
+                            <a class="links" href = "kittens.html" index="1">Kittens</a>
+                            <div class="description kittens hidden">idk dude didnt think youd watch this</div>
+                        </li>
+                        <li>
+                            <a class="links" href = "games.html" index="2">Games</a>
+                            <div class="description games hidden">you can find some more skulls there</div>
+                        </li>
+                        <li>
+                            <a class="links" href = "whatever.html" index="3">Whatever</a>
+                            <div class="description whatever hidden">whos the designer wtf is this title</div>
+                        </li>
                     </ul>
                 </div>
-                <div class = "modal-btn-cont">
-                    <button class="modal-btn">
-                        <img src="skull3.svg" width="100%" height="100%">
-                    </button>
+                <div class="settings">
+                    <button class="night-mode btns"><img src="nightmode.svg"></button>
+                    <button class="ru-en btns">RU</button>
                 </div>
             </nav>
         </header>
+        <div class = "modal-btn-cont">
+            <button class="modal-btn">
+                <img src="skull3.svg" width="100%" height="100%">
+            </button>
+        </div>
         <section class="modal-container">
             <div class="modal-text">
                 <div class="txt">
